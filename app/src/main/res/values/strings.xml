@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Settings Shortcutter</string>
+    <string name="unsupported">Requires API Level %1$d+</string>
+</resources>

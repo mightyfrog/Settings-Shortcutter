@@ -1,0 +1,386 @@
+[
+  {
+    "name": "ACTION_ACCESSIBILITY_SETTINGS",
+    "api": 5,
+    "action": "Show settings for accessibility modules.",
+    "constant": "android.settings.ACCESSIBILITY_SETTINGS"
+  },
+  {
+    "name": "ACTION_ADD_ACCOUNT",
+    "api": 8,
+    "action": "Show add account screen for creating a new account.",
+    "constant": "android.settings.ADD_ACCOUNT_SETTINGS"
+  },
+  {
+    "name": "ACTION_AIRPLANE_MODE_SETTINGS",
+    "api": 3,
+    "action": "Show settings to allow entering\/exiting airplane mode.",
+    "constant": "android.settings.AIRPLANE_MODE_SETTINGS"
+  },
+  {
+    "name": "ACTION_APN_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of APNs.",
+    "constant": "android.settings.APN_SETTINGS"
+  },
+  {
+    "name": "ACTION_APPLICATION_DETAILS_SETTINGS",
+    "api": 9,
+    "action": "Show screen of details about a particular application.",
+    "constant": "android.settings.APPLICATION_DETAILS_SETTINGS"
+  },
+  {
+    "name": "ACTION_APPLICATION_DEVELOPMENT_SETTINGS",
+    "api": 3,
+    "action": "Show settings to allow configuration of application development-related settings.",
+    "constant": "android.settings.APPLICATION_DEVELOPMENT_SETTINGS"
+  },
+  {
+    "name": "ACTION_APPLICATION_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of application-related settings.",
+    "constant": "android.settings.APPLICATION_SETTINGS"
+  },
+  {
+    "name": "ACTION_APP_NOTIFICATION_SETTINGS",
+    "api": 10000,
+    "action": "Show notification settings for a single app.",
+    "constant": "android.settings.APP_NOTIFICATION_SETTINGS"
+  },
+  {
+    "name": "ACTION_BATTERY_SAVER_SETTINGS",
+    "api": 22,
+    "action": "Show battery saver settings.",
+    "constant": "android.settings.BATTERY_SAVER_SETTINGS"
+  },
+  {
+    "name": "ACTION_BLUETOOTH_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of Bluetooth.",
+    "constant": "android.settings.BLUETOOTH_SETTINGS"
+  },
+  {
+    "name": "ACTION_CAPTIONING_SETTINGS",
+    "api": 19,
+    "action": "Show settings for video captioning.",
+    "constant": "android.settings.CAPTIONING_SETTINGS"
+  },
+  {
+    "name": "ACTION_CAST_SETTINGS",
+    "api": 21,
+    "action": "Show settings to allow configuration of cast endpoints.",
+    "constant": "android.settings.CAST_SETTINGS"
+  },
+  {
+    "name": "ACTION_CHANNEL_NOTIFICATION_SETTINGS",
+    "api": 10000,
+    "action": "Show notification settings for a single NotificationChannel.",
+    "constant": "android.settings.CHANNEL_NOTIFICATION_SETTINGS"
+  },
+  {
+    "name": "ACTION_DATA_ROAMING_SETTINGS",
+    "api": 3,
+    "action": "Show settings for selection of 2G\/3G.",
+    "constant": "android.settings.DATA_ROAMING_SETTINGS"
+  },
+  {
+    "name": "ACTION_DATE_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of date and time.",
+    "constant": "android.settings.DATE_SETTINGS"
+  },
+  {
+    "name": "ACTION_DEVICE_INFO_SETTINGS",
+    "api": 8,
+    "action": "Show general device information settings (serial number, software version, phone number, etc.).",
+    "constant": "android.settings.DEVICE_INFO_SETTINGS"
+  },
+  {
+    "name": "ACTION_DISPLAY_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of display.",
+    "constant": "android.settings.DISPLAY_SETTINGS"
+  },
+  {
+    "name": "ACTION_DREAM_SETTINGS",
+    "api": 18,
+    "action": "Show Daydream settings.",
+    "constant": "android.settings.DREAM_SETTINGS"
+  },
+  {
+    "name": "ACTION_HARD_KEYBOARD_SETTINGS",
+    "api": 24,
+    "action": "Show settings to configure the hardware keyboard.",
+    "constant": "android.settings.HARD_KEYBOARD_SETTINGS"
+  },
+  {
+    "name": "ACTION_HOME_SETTINGS",
+    "api": 21,
+    "action": "Show Home selection settings. If there are multiple activities that can satisfy the CATEGORY_HOME intent, this screen allows you to pick your preferred activity.",
+    "constant": "android.settings.HOME_SETTINGS"
+  },
+  {
+    "name": "ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS",
+    "api": 24,
+    "action": "Show screen for controlling background data restrictions for a particular application.",
+    "constant": "android.settings.IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS"
+  },
+  {
+    "name": "ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS",
+    "api": 23,
+    "action": "Show screen for controlling which apps can ignore battery optimizations.",
+    "constant": "android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS"
+  },
+  {
+    "name": "ACTION_INPUT_METHOD_SETTINGS",
+    "api": 3,
+    "action": "Show settings to configure input methods, in particular allowing the user to enable input methods.",
+    "constant": "android.settings.INPUT_METHOD_SETTINGS"
+  },
+  {
+    "name": "ACTION_INPUT_METHOD_SUBTYPE_SETTINGS",
+    "api": 11,
+    "action": "Show settings to enable\/disable input method subtypes.",
+    "constant": "android.settings.INPUT_METHOD_SUBTYPE_SETTINGS"
+  },
+  {
+    "name": "ACTION_INTERNAL_STORAGE_SETTINGS",
+    "api": 3,
+    "action": "Show settings for internal storage.",
+    "constant": "android.settings.INTERNAL_STORAGE_SETTINGS"
+  },
+  {
+    "name": "ACTION_LOCALE_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of locale.",
+    "constant": "android.settings.LOCALE_SETTINGS"
+  },
+  {
+    "name": "ACTION_LOCATION_SOURCE_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of current location sources.",
+    "constant": "android.settings.LOCATION_SOURCE_SETTINGS"
+  },
+  {
+    "name": "ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS",
+    "api": 9,
+    "action": "Show settings to manage all applications.",
+    "constant": "android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS"
+  },
+  {
+    "name": "ACTION_MANAGE_APPLICATIONS_SETTINGS",
+    "api": 3,
+    "action": "Show settings to manage installed applications.",
+    "constant": "android.settings.MANAGE_APPLICATIONS_SETTINGS"
+  },
+  {
+    "name": "ACTION_MANAGE_DEFAULT_APPS_SETTINGS",
+    "api": 24,
+    "action": "Show Default apps settings.",
+    "constant": "android.settings.MANAGE_DEFAULT_APPS_SETTINGS"
+  },
+  {
+    "name": "ACTION_MANAGE_OVERLAY_PERMISSION",
+    "api": 23,
+    "action": "Show screen for controlling which apps can draw on top of other apps.",
+    "constant": "android.settings.action.MANAGE_OVERLAY_PERMISSION"
+  },
+  {
+    "name": "ACTION_MANAGE_UNKNOWN_APP_SOURCES",
+    "api": 10000,
+    "action": "Show settings to allow configuration of trusted external sources",
+    "constant": "android.settings.action.MANAGE_UNKNOWN_APP_SOURCES"
+  },
+  {
+    "name": "ACTION_MANAGE_WRITE_SETTINGS",
+    "api": 23,
+    "action": "Show screen for controlling which apps are allowed to write\/modify system settings.",
+    "constant": "android.settings.action.MANAGE_WRITE_SETTINGS"
+  },
+  {
+    "name": "ACTION_MEMORY_CARD_SETTINGS",
+    "api": 3,
+    "action": "Show settings for memory card storage.",
+    "constant": "android.settings.MEMORY_CARD_SETTINGS"
+  },
+  {
+    "name": "ACTION_NETWORK_OPERATOR_SETTINGS",
+    "api": 3,
+    "action": "Show settings for selecting the network operator.",
+    "constant": "android.settings.NETWORK_OPERATOR_SETTINGS"
+  },
+  {
+    "name": "ACTION_NFCSHARING_SETTINGS",
+    "api": 14,
+    "action": "Show NFC Sharing settings. This shows UI that allows NDEF Push (Android Beam) to be turned on or off.",
+    "constant": "android.settings.NFCSHARING_SETTINGS"
+  },
+  {
+    "name": "ACTION_NFC_PAYMENT_SETTINGS",
+    "api": 19,
+    "action": "Show NFC Tap & Pay settings. This shows UI that allows the user to configure Tap&Pay settings.",
+    "constant": "android.settings.NFC_PAYMENT_SETTINGS"
+  },
+  {
+    "name": "ACTION_NFC_SETTINGS",
+    "api": 16,
+    "action": "Show NFC settings. This shows UI that allows NFC to be turned on or off.",
+    "constant": "android.settings.NFC_SETTINGS"
+  },
+  {
+    "name": "ACTION_NIGHT_DISPLAY_SETTINGS",
+    "api": 10000,
+    "action": "Show settings to allow configuration of Night display.",
+    "constant": "android.settings.NIGHT_DISPLAY_SETTINGS"
+  },
+  {
+    "name": "ACTION_NOTIFICATION_LISTENER_SETTINGS",
+    "api": 22,
+    "action": "Show Notification listener settings.",
+    "constant": "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"
+  },
+  {
+    "name": "ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS",
+    "api": 23,
+    "action": "Show Do Not Disturb access settings. Users can grant and deny access to Do Not Disturb configuration from here. See isNotificationPolicyAccessGranted() for more details.",
+    "constant": "android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"
+  },
+  {
+    "name": "ACTION_PRINT_SETTINGS",
+    "api": 19,
+    "action": "Show the top level print settings.",
+    "constant": "android.settings.ACTION_PRINT_SETTINGS"
+  },
+  {
+    "name": "ACTION_PRIVACY_SETTINGS",
+    "api": 5,
+    "action": "Show settings to allow configuration of privacy options.",
+    "constant": "android.settings.PRIVACY_SETTINGS"
+  },
+  {
+    "name": "ACTION_QUICK_LAUNCH_SETTINGS",
+    "api": 3,
+    "action": "Show settings to allow configuration of quick launch shortcuts.",
+    "constant": "android.settings.QUICK_LAUNCH_SETTINGS"
+  },
+  {
+    "name": "ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
+    "api": 23,
+    "action": "Ask the user to allow an app to ignore battery optimizations (that is, put them on the whitelist of apps shown by ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS). For an app to use this, it also must hold the REQUEST_IGNORE_BATTERY_OPTIMIZATIONS permission.",
+    "constant": "android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+  },
+  {
+    "name": "ACTION_SEARCH_SETTINGS",
+    "api": 8,
+    "action": "Show settings for global search.",
+    "constant": "android.search.action.SEARCH_SETTINGS"
+  },
+  {
+    "name": "ACTION_SECURITY_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of security and location privacy.",
+    "constant": "android.settings.SECURITY_SETTINGS"
+  },
+  {
+    "name": "ACTION_SETTINGS",
+    "api": 1,
+    "action": "Show system settings.",
+    "constant": "android.settings.SETTINGS"
+  },
+  {
+    "name": "ACTION_SHOW_REGULATORY_INFO",
+    "api": 21,
+    "action": "Show the regulatory information screen for the device.",
+    "constant": "android.settings.SHOW_REGULATORY_INFO"
+  },
+  {
+    "name": "ACTION_SOUND_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of sound and volume.",
+    "constant": "android.settings.SOUND_SETTINGS"
+  },
+  {
+    "name": "ACTION_SYNC_SETTINGS",
+    "api": 3,
+    "action": "Show settings to allow configuration of sync settings.",
+    "constant": "android.settings.SYNC_SETTINGS"
+  },
+  {
+    "name": "ACTION_USAGE_ACCESS_SETTINGS",
+    "api": 21,
+    "action": "Show settings to control access to usage information.",
+    "constant": "android.settings.USAGE_ACCESS_SETTINGS"
+  },
+  {
+    "name": "ACTION_USER_DICTIONARY_SETTINGS",
+    "api": 3,
+    "action": "Show settings to manage the user input dictionary.",
+    "constant": "android.settings.USER_DICTIONARY_SETTINGS"
+  },
+  {
+    "name": "ACTION_VOICE_CONTROL_AIRPLANE_MODE",
+    "api": 23,
+    "action": "Modify Airplane mode settings using a voice command. This intent MUST be started using startVoiceActivity.",
+    "constant": "android.settings.VOICE_CONTROL_AIRPLANE_MODE"
+  },
+  {
+    "name": "ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE",
+    "api": 23,
+    "action": "Modify Battery Saver mode setting using a voice command. This intent MUST be started using startVoiceActivity.",
+    "constant": "android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE"
+  },
+  {
+    "name": "ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE",
+    "api": 23,
+    "action": "Modify do not disturb mode settings. This intent MUST be started using startVoiceActivity.",
+    "constant": "android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE"
+  },
+  {
+    "name": "ACTION_VOICE_INPUT_SETTINGS",
+    "api": 21,
+    "action": "Show settings to configure input methods, in particular allowing the user to enable input methods.",
+    "constant": "android.settings.VOICE_INPUT_SETTINGS"
+  },
+  {
+    "name": "ACTION_VPN_SETTINGS",
+    "api": 24,
+    "action": "Show settings to allow configuration of VPN.",
+    "constant": "android.settings.VPN_SETTINGS"
+  },
+  {
+    "name": "ACTION_VR_LISTENER_SETTINGS",
+    "api": 24,
+    "action": "Show VR listener settings.",
+    "constant": "android.settings.VR_LISTENER_SETTINGS"
+  },
+  {
+    "name": "ACTION_WEBVIEW_SETTINGS",
+    "api": 24,
+    "action": "Allows user to select current webview implementation.",
+    "constant": "android.settings.WEBVIEW_SETTINGS"
+  },
+  {
+    "name": "ACTION_WIFI_IP_SETTINGS",
+    "api": 3,
+    "action": "Show settings to allow configuration of a static IP address for Wi-Fi.",
+    "constant": "android.settings.WIFI_IP_SETTINGS"
+  },
+  {
+    "name": "ACTION_WIFI_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of Wi-Fi.",
+    "constant": "android.settings.WIFI_SETTINGS"
+  },
+  {
+    "name": "ACTION_WIRELESS_SETTINGS",
+    "api": 1,
+    "action": "Show settings to allow configuration of wireless controls such as Wi-Fi, Bluetooth and Mobile networks.",
+    "constant": "android.settings.WIRELESS_SETTINGS"
+  },
+  {
+    "name": "ACTION_ZEN_MODE_PRIORITY_SETTINGS",
+    "api": 10000,
+    "action": "Show Zen Mode (aka Do Not Disturb) priority configuration settings.",
+    "constant": "android.settings.ZEN_MODE_PRIORITY_SETTINGS"
+  }
+]
