@@ -83,7 +83,7 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
             }
             Settings.ACTION_APP_NOTIFICATION_SETTINGS -> {
                 intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
-                intent.putExtra(Settings.EXTRA_CHANNEL_ID, "test_id_1") // optional, not working as of O preview DP2
+                intent.putExtra(Settings.EXTRA_CHANNEL_ID, "test_id_1") // optional, not working as of Android O DP2
             }
             Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS -> {
                 intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
