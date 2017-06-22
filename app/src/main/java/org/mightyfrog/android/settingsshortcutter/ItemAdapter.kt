@@ -28,13 +28,7 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
         mList = Gson().fromJson(InputStreamReader(context.resources.openRawResource(R.raw.data)), tt)
     }
 
-    override fun getItemCount(): Int {
-        return mList.size
-    }
-
-    override fun getItemId(position: Int): Long {
-        return mList[position].name!!.toLong()
-    }
+    override fun getItemCount() = mList.size
 
     @TargetApi(Build.VERSION_CODES.O)
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
@@ -43,21 +37,25 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
         vh.itemView.setOnClickListener({
             val item = mList[vh.adapterPosition]
             sendIntent(item.constant)
-//            val apiLevel = item.api!!.toInt()
-//            if (apiLevel <= Build.VERSION.SDK_INT) {
-//                sendIntent(item.constant)
-//            } else {
-//                Toast.makeText(context, context.getString(R.string.unsupported, apiLevel), Toast.LENGTH_SHORT).show()
-//            }
+            item.api?.apply {
+                val apiLevel = toInt()
+                if (apiLevel <= Build.VERSION.SDK_INT) {
+                    sendIntent(item.constant)
+                } else {
+                    Toast.makeText(context, context.getString(R.string.unsupported, apiLevel), Toast.LENGTH_SHORT).show()
+                }
+            }
         })
 
         return vh
     }
 
     override fun onBindViewHolder(vh: ItemViewHolder?, position: Int) {
-        val item = mList[position]
-        vh?.name?.text = item.name
-        vh?.desc?.text = item.action
+        vh?.apply {
+            val item = mList[position]
+            name.text = item.name
+            desc.text = item.action
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.O)
