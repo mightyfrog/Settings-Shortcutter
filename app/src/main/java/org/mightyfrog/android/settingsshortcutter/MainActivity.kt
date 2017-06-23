@@ -16,7 +16,7 @@ import android.support.v7.widget.Toolbar
  */
 class MainActivity : AppCompatActivity() {
 
-    @TargetApi(Build.VERSION_CODES.O)
+    @TargetApi(26)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,15 +28,13 @@ class MainActivity : AppCompatActivity() {
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = ItemAdapter(this)
 
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            createTestChannel("test_id_1", "Test Channel 1")
-//            createTestChannel("test_id_2", "Test Channel 2")
-//        }
-        createTestChannel("test_id_1", "Test Channel 1")
-        createTestChannel("test_id_2", "Test Channel 2")
+        if (Build.VERSION.SDK_INT >= 26) {
+            createTestChannel("test_id_1", "Test Channel 1")
+            createTestChannel("test_id_2", "Test Channel 2")
+        }
     }
 
-    @TargetApi(Build.VERSION_CODES.O)
+    @TargetApi(26)
     private fun createTestChannel(id: String, name: String) {
         val channel = NotificationChannel(id, name, NotificationManager.IMPORTANCE_DEFAULT)
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

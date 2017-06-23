@@ -30,13 +30,12 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
 
     override fun getItemCount() = mList.size
 
-    @TargetApi(Build.VERSION_CODES.O)
+    @TargetApi(26)
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.vh_item, parent, false)
         val vh = ItemViewHolder(view)
         vh.itemView.setOnClickListener({
             val item = mList[vh.adapterPosition]
-            sendIntent(item.constant)
             item.api?.apply {
                 val apiLevel = toInt()
                 if (apiLevel <= Build.VERSION.SDK_INT) {
@@ -58,7 +57,7 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.O)
+    @TargetApi(26)
     private fun sendIntent(action: String?) {
         action ?: return
 
@@ -81,7 +80,7 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
             }
             Settings.ACTION_APP_NOTIFICATION_SETTINGS -> {
                 intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
-                intent.putExtra(Settings.EXTRA_CHANNEL_ID, "test_id_1") // optional, not working as of Android O DP2
+                intent.putExtra(Settings.EXTRA_CHANNEL_ID, "test_id_1") // optional, not working as of Android O DP3
             }
             Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS -> {
                 intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
