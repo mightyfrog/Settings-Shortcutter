@@ -32,9 +32,8 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
 
     @TargetApi(26)
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.vh_item, parent, false)
-        val vh = ItemViewHolder(view)
-        vh.itemView.setOnClickListener({
+        val vh = ItemViewHolder(LayoutInflater.from(parent?.context).inflate(R.layout.vh_item, parent, false))
+        vh.itemView.setOnClickListener {
             val item = mList[vh.adapterPosition]
             item.api?.apply {
                 val apiLevel = toInt()
@@ -44,7 +43,7 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
                     Toast.makeText(context, context.getString(R.string.unsupported, apiLevel), Toast.LENGTH_SHORT).show()
                 }
             }
-        })
+        }
 
         return vh
     }
@@ -61,7 +60,7 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
     private fun sendIntent(action: String?) {
         action ?: return
 
-        val intent = Intent(action)
+        val intent = Intent()
         when (action) {
             Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
             Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
@@ -91,6 +90,8 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
 //                intent.putExtra(Settings.EXTRA_ACCOUNT_TYPES, arrayOf("com.google"))
             }
         }
+        intent.action = action
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
         try {
             ContextCompat.startActivity(context, intent, null)
         } catch (t: Throwable) {
