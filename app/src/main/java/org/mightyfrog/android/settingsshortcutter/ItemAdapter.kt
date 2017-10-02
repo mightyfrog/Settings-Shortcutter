@@ -20,27 +20,27 @@ import java.io.InputStreamReader
 /**
  * @author Shigehiro Soejima
  */
-class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-    private val mList: List<Item>
+class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+
+    private val list: List<Item>
 
     init {
         val tt = object : TypeToken<List<Item>>() {}.type
-        mList = Gson().fromJson(InputStreamReader(context.resources.openRawResource(R.raw.data)), tt)
+        list = Gson().fromJson(InputStreamReader(context.resources.openRawResource(R.raw.data)), tt)
     }
 
-    override fun getItemCount() = mList.size
+    override fun getItemCount() = list.size
 
     @TargetApi(26)
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
         val vh = ItemViewHolder(LayoutInflater.from(parent?.context).inflate(R.layout.vh_item, parent, false))
         vh.itemView.setOnClickListener {
-            val item = mList[vh.adapterPosition]
-            item.api?.apply {
-                val apiLevel = toInt()
-                if (apiLevel <= Build.VERSION.SDK_INT) {
+            val item = list[vh.adapterPosition]
+            item.api?.let {
+                if (it <= Build.VERSION.SDK_INT) {
                     sendIntent(item.constant)
                 } else {
-                    Toast.makeText(context, context.getString(R.string.unsupported, apiLevel), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.unsupported, it), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -50,7 +50,7 @@ class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemV
 
     override fun onBindViewHolder(vh: ItemViewHolder?, position: Int) {
         vh?.apply {
-            val item = mList[position]
+            val item = list[position]
             name.text = item.name
             desc.text = item.action
         }

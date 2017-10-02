@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 
 /**
  * @author Shigehiro Soejima
@@ -21,12 +20,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(findViewById(R.id.toolbar))
 
-        val rv = findViewById<RecyclerView>(R.id.rv)
-        rv.layoutManager = LinearLayoutManager(this)
-        rv.adapter = ItemAdapter(this)
+        findViewById<RecyclerView>(R.id.rv).let {
+            it.layoutManager = LinearLayoutManager(this)
+            it.adapter = ItemAdapter(this)
+        }
 
         if (Build.VERSION.SDK_INT >= 26) {
             createTestChannel("test_id_1", "Test Channel 1")
