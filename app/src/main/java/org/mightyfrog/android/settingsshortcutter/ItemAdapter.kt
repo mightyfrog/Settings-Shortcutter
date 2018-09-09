@@ -32,9 +32,9 @@ class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapt
     override fun getItemCount() = list.size
 
     @TargetApi(26)
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
-        val vh = ItemViewHolder(LayoutInflater.from(parent?.context).inflate(R.layout.vh_item, parent, false))
-        vh.itemView.setOnClickListener {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val vh = ItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.vh_item, parent, false))
+        vh.itemView.setOnClickListener { _ ->
             val item = list[vh.adapterPosition]
             item.api?.let {
                 if (it <= Build.VERSION.SDK_INT) {
@@ -48,14 +48,15 @@ class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapt
         return vh
     }
 
-    override fun onBindViewHolder(vh: ItemViewHolder?, position: Int) {
-        vh?.apply {
+    override fun onBindViewHolder(vh: ItemViewHolder, position: Int) {
+        vh.apply {
             val item = list[position]
             name.text = item.name
             desc.text = item.action
         }
     }
 
+//    @SuppressLint("BatteryLife")
     @TargetApi(26)
     private fun sendIntent(action: String?) {
         action ?: return
