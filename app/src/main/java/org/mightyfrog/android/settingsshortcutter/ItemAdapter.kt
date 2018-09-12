@@ -54,7 +54,7 @@ class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapt
     override fun onBindViewHolder(vh: ItemViewHolder, position: Int) {
         vh.apply {
             val item = list[position]
-            name.text = item.name
+            name.text = name.context.getString(R.string.name_and_api, item.name, item.api)
             desc.text = item.action
         }
     }
