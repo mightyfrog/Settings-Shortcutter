@@ -41,12 +41,12 @@
     "action": "Show settings to allow configuration of application-related settings.",
     "constant": "android.settings.APPLICATION_SETTINGS"
   },
-  {
-    "name": "ACTION_APP_NOTIFICATION_SETTINGS",
-    "api": 10000,
-    "action": "Show notification settings for a single app.",
-    "constant": "android.settings.APP_NOTIFICATION_SETTINGS"
-  },
+  //  {
+  //    "name": "ACTION_APP_NOTIFICATION_SETTINGS",
+  //    "api": 28,
+  //    "action": "Show notification settings for a single app.",
+  //    "constant": "android.settings.APP_NOTIFICATION_SETTINGS"
+  //  },
   {
     "name": "ACTION_BATTERY_SAVER_SETTINGS",
     "api": 22,
@@ -73,7 +73,7 @@
   },
   {
     "name": "ACTION_CHANNEL_NOTIFICATION_SETTINGS",
-    "api": 10000,
+    "api": 28,
     "action": "Show notification settings for a single NotificationChannel.",
     "constant": "android.settings.CHANNEL_NOTIFICATION_SETTINGS"
   },
@@ -88,6 +88,12 @@
     "api": 1,
     "action": "Show settings to allow configuration of date and time.",
     "constant": "android.settings.DATE_SETTINGS"
+  },
+  {
+    "name": "ACTION_DATA_USAGE_SETTINGS",
+    "api": 28,
+    "action": "In some cases, a matching Activity may not exist, so ensure you safeguard against this.",
+    "constant": "android.settings.DATA_USAGE_SETTINGS"
   },
   {
     "name": "ACTION_DEVICE_INFO_SETTINGS",
@@ -106,6 +112,12 @@
     "api": 18,
     "action": "Show Daydream settings.",
     "constant": "android.settings.DREAM_SETTINGS"
+  },
+  {
+    "name": "ACTION_FINGERPRINT_ENROLL",
+    "api": 28,
+    "action": "Show settings to enroll fingerprints, and setup PIN/Pattern/Pass if necessary.",
+    "constant": "android.settings.FINGERPRINT_ENROLL"
   },
   {
     "name": "ACTION_HARD_KEYBOARD_SETTINGS",
@@ -187,7 +199,7 @@
   },
   {
     "name": "ACTION_MANAGE_UNKNOWN_APP_SOURCES",
-    "api": 10000,
+    "api": 26,
     "action": "Show settings to allow configuration of trusted external sources",
     "constant": "android.settings.action.MANAGE_UNKNOWN_APP_SOURCES"
   },
@@ -229,7 +241,7 @@
   },
   {
     "name": "ACTION_NIGHT_DISPLAY_SETTINGS",
-    "api": 10000,
+    "api": 26,
     "action": "Show settings to allow configuration of Night display.",
     "constant": "android.settings.NIGHT_DISPLAY_SETTINGS"
   },
@@ -270,6 +282,12 @@
     "constant": "android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
   },
   {
+    "name": "ACTION_REQUEST_SET_AUTOFILL_SERVICE",
+    "api": 26,
+    "action": "Activity Action: Show screen that let user select its Autofill Service.",
+    "constant": "android.settings.REQUEST_SET_AUTOFILL_SERVICE"
+  },
+  {
     "name": "ACTION_SEARCH_SETTINGS",
     "api": 8,
     "action": "Show settings for global search.",
@@ -298,6 +316,12 @@
     "api": 1,
     "action": "Show settings to allow configuration of sound and volume.",
     "constant": "android.settings.SOUND_SETTINGS"
+  },
+  {
+    "name": "ACTION_STORAGE_VOLUME_ACCESS_SETTINGS",
+    "api": 28,
+    "action": "Activity Action: Show screen for controlling which apps have access on volume directories.",
+    "constant": "android.settings.STORAGE_VOLUME_ACCESS_SETTINGS"
   },
   {
     "name": "ACTION_SYNC_SETTINGS",
@@ -379,7 +403,7 @@
   },
   {
     "name": "ACTION_ZEN_MODE_PRIORITY_SETTINGS",
-    "api": 10000,
+    "api": 26,
     "action": "Show Zen Mode (aka Do Not Disturb) priority configuration settings.",
     "constant": "android.settings.ZEN_MODE_PRIORITY_SETTINGS"
   }

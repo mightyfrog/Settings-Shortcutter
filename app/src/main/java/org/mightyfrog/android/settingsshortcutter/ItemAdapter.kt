@@ -27,6 +27,9 @@ class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapt
     init {
         val tt = object : TypeToken<List<Item>>() {}.type
         list = Gson().fromJson(InputStreamReader(context.resources.openRawResource(R.raw.data)), tt)
+        list.sortedBy {
+            it.name
+        }
     }
 
     override fun getItemCount() = list.size
@@ -56,7 +59,7 @@ class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapt
         }
     }
 
-//    @SuppressLint("BatteryLife")
+    //    @SuppressLint("BatteryLife")
     @TargetApi(26)
     private fun sendIntent(action: String?) {
         action ?: return
@@ -68,6 +71,7 @@ class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapt
             Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
             Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
             Settings.ACTION_MANAGE_WRITE_SETTINGS,
+            Settings.ACTION_REQUEST_SET_AUTOFILL_SERVICE,
             Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS -> {
                 intent.data = Uri.parse("package:" + context.packageName)
             }
