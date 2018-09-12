@@ -341,24 +341,24 @@
     "action": "Show settings to manage the user input dictionary.",
     "constant": "android.settings.USER_DICTIONARY_SETTINGS"
   },
-  {
-    "name": "ACTION_VOICE_CONTROL_AIRPLANE_MODE",
-    "api": 23,
-    "action": "Modify Airplane mode settings using a voice command. This intent MUST be started using startVoiceActivity.",
-    "constant": "android.settings.VOICE_CONTROL_AIRPLANE_MODE"
-  },
-  {
-    "name": "ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE",
-    "api": 23,
-    "action": "Modify Battery Saver mode setting using a voice command. This intent MUST be started using startVoiceActivity.",
-    "constant": "android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE"
-  },
-  {
-    "name": "ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE",
-    "api": 23,
-    "action": "Modify do not disturb mode settings. This intent MUST be started using startVoiceActivity.",
-    "constant": "android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE"
-  },
+//  {
+//    "name": "ACTION_VOICE_CONTROL_AIRPLANE_MODE",
+//    "api": 23,
+//    "action": "Modify Airplane mode settings using a voice command. This intent MUST be started using startVoiceActivity.",
+//    "constant": "android.settings.VOICE_CONTROL_AIRPLANE_MODE"
+//  },
+//  {
+//    "name": "ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE",
+//    "api": 23,
+//    "action": "Modify Battery Saver mode setting using a voice command. This intent MUST be started using startVoiceActivity.",
+//    "constant": "android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE"
+//  },
+//  {
+//    "name": "ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE",
+//    "api": 23,
+//    "action": "Modify do not disturb mode settings. This intent MUST be started using startVoiceActivity.",
+//    "constant": "android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE"
+//  },
   {
     "name": "ACTION_VOICE_INPUT_SETTINGS",
     "api": 21,
