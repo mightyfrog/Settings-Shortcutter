@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<RecyclerView>(R.id.rv).let {
             it.layoutManager = LinearLayoutManager(this)
-            it.adapter = ItemAdapter(this)
+            it.adapter = ItemAdapter(supportFragmentManager, this)
         }
 
         if (Build.VERSION.SDK_INT >= 26) {

@@ -1,11 +1,13 @@
 package org.mightyfrog.android.settingsshortcutter
 
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.provider.Settings
+import android.support.v4.app.FragmentManager
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -20,7 +22,7 @@ import java.io.InputStreamReader
 /**
  * @author Shigehiro Soejima
  */
-class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(private val fragmentManager: FragmentManager, private val context: Context) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     private val list: List<Item>
 
@@ -59,7 +61,7 @@ class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapt
         }
     }
 
-    //    @SuppressLint("BatteryLife")
+    @SuppressLint("BatteryLife")
     @TargetApi(26)
     private fun sendIntent(action: String?) {
         action ?: return
@@ -73,7 +75,10 @@ class ItemAdapter(private val context: Context) : RecyclerView.Adapter<ItemAdapt
             Settings.ACTION_MANAGE_WRITE_SETTINGS,
             Settings.ACTION_REQUEST_SET_AUTOFILL_SERVICE,
             Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS -> {
-                intent.data = Uri.parse("package:" + context.packageName)
+                val b = Bundle()
+                b.putString("action", action)
+                PackageChooserDialog.newInstance(b).show(fragmentManager, PackageChooserDialog::class.java.simpleName)
+                return
             }
             Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS -> {
                 val adb = Settings.Secure.getInt(context.contentResolver, Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0)
