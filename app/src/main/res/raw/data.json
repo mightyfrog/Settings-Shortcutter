@@ -74,7 +74,7 @@
   {
     "name": "ACTION_CHANNEL_NOTIFICATION_SETTINGS",
     "api": 28,
-    "action": "Show notification settings for a single NotificationChannel.",
+    "action": "Show notification settings for a single NotificationChannel. (DEMO)",
     "constant": "android.settings.CHANNEL_NOTIFICATION_SETTINGS"
   },
   {
