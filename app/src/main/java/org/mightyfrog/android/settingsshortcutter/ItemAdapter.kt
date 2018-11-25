@@ -39,13 +39,13 @@ class ItemAdapter(private val fragmentManager: FragmentManager, private val cont
     @TargetApi(26)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val vh = ItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.vh_item, parent, false))
-        vh.itemView.setOnClickListener { _ ->
+        vh.itemView.setOnClickListener {
             val item = list[vh.adapterPosition]
-            item.api?.let {
-                if (it <= Build.VERSION.SDK_INT) {
+            item.api?.let { api ->
+                if (api <= Build.VERSION.SDK_INT) {
                     sendIntent(item.constant)
                 } else {
-                    Toast.makeText(context, context.getString(R.string.unsupported, it), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.unsupported, api), Toast.LENGTH_SHORT).show()
                 }
             }
         }
