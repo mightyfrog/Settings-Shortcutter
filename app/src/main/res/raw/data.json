@@ -18,6 +18,12 @@
     "constant": "android.settings.AIRPLANE_MODE_SETTINGS"
   },
   {
+    "name": "ACTION_ALL_APPS_NOTIFICATION_SETTINGS",
+    "api": 0,
+    "action": "Show app listing settings, filtered by those that send notifications.",
+    "constant": "android.settings.ALL_APPS_NOTIFICATION_SETTINGS"
+  },
+  {
     "name": "ACTION_APN_SETTINGS",
     "api": 1,
     "action": "Show settings to allow configuration of APNs.",
@@ -41,12 +47,48 @@
     "action": "Show settings to allow configuration of application-related settings.",
     "constant": "android.settings.APPLICATION_SETTINGS"
   },
-  //  {
-  //    "name": "ACTION_APP_NOTIFICATION_SETTINGS",
-  //    "api": 28,
-  //    "action": "Show notification settings for a single app.",
-  //    "constant": "android.settings.APP_NOTIFICATION_SETTINGS"
-  //  },
+  {
+    "name": "ACTION_APP_LOCALE_SETTINGS",
+    "api": 0,
+    "action": "Show settings to allow configuration of per application locale.",
+    "constant": "android.settings.APP_LOCALE_SETTINGS"
+  },
+  {
+    "name": "ACTION_APP_NOTIFICATION_SETTINGS",
+    "api": 28,
+    "action": "Show notification settings for a single app.",
+    "constant": "android.settings.APP_NOTIFICATION_SETTINGS"
+  },
+  {
+    "name": "ACTION_APP_OPEN_BY_DEFAULT_SETTINGS",
+    "api": 31,
+    "action": "Show the \"Open by Default\" page in a particular application's details page. In some cases, a matching Activity may not exist, so ensure you safeguard against this.",
+    "constant": "android.settings.APP_OPEN_BY_DEFAULT_SETTINGS"
+  },
+  {
+    "name": "ACTION_APP_SEARCH_SETTINGS",
+    "api": 29,
+    "action": "Show Settings app search UI when this action is available for device.",
+    "constant": "android.settings.APP_SEARCH_SETTINGS"
+  },
+  {
+    "name": "ACTION_APP_USAGE_SETTINGS",
+    "api": 29,
+    "action": "Show screen for controlling app usage properties for an app.",
+    "constant": "android.settings.action.APP_USAGE_SETTINGS"
+  },
+  {
+    "name": "ACTION_AUTO_ROTATE_SETTINGS",
+    "api": 31,
+    "action": "Show Auto Rotate configuration settings.",
+    "constant": "android.settings.AUTO_ROTATE_SETTINGS"
+  },
+  {
+    "name": "ACTION_BIOMETRIC_ENROLL",
+    "api": 30,
+    "action": "Show settings to enroll biometrics, and setup PIN/Pattern/Pass if necessary. By default, this prompts the user to enroll biometrics with strength Weak or above, as defined by the CDD. Only biometrics that meet or exceed Strong, as defined in the CDD are allowed to participate in Keystore operations.",
+    "constant": "android.settings.BIOMETRIC_ENROLL"
+  },
   {
     "name": "ACTION_BATTERY_SAVER_SETTINGS",
     "api": 22,
@@ -78,6 +120,12 @@
     "constant": "android.settings.CHANNEL_NOTIFICATION_SETTINGS"
   },
   {
+    "name": "ACTION_CONDITION_PROVIDER_SETTINGS",
+    "api": 30,
+    "action": "Show the automatic do not disturb rule listing page. Users can add, enable, disable, and remove automatic do not disturb rules from this screen. See NotificationManager#addAutomaticZenRule(AutomaticZenRule) for more details.",
+    "constant": "android.settings.ACTION_CONDITION_PROVIDER_SETTINGS"
+  },
+  {
     "name": "ACTION_DATA_ROAMING_SETTINGS",
     "api": 3,
     "action": "Show settings for selection of 2G\/3G.",
@@ -106,6 +154,12 @@
     "api": 1,
     "action": "Show settings to allow configuration of display.",
     "constant": "android.settings.DISPLAY_SETTINGS"
+  },
+  {
+    "name": "ACTION_DREAM_SETTINGS",
+    "api": 18,
+    "action": "Show Daydream settings.",
+    "constant": "android.settings.DREAM_SETTINGS"
   },
   {
     "name": "ACTION_DREAM_SETTINGS",
@@ -180,10 +234,28 @@
     "constant": "android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS"
   },
   {
+    "name": "ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION",
+    "api": 30,
+    "action": "Show screen for controlling which apps have access to manage external storage. In some cases, a matching Activity may not exist, so ensure you safeguard against this. If you want to control a specific app's access to manage external storage, use ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION instead.",
+    "constant": "android.settings.MANAGE_ALL_FILES_ACCESS_PERMISSION"
+  },
+  {
+    "name": "ACTION_MANAGE_ALL_SIM_PROFILES_SETTINGS",
+    "api": 31,
+    "action": "Show settings to manage all SIM profiles. In some cases, a matching Activity may not exist, so ensure you safeguard against this.",
+    "constant": "android.settings.MANAGE_ALL_SIM_PROFILES_SETTINGS"
+  },
+  {
     "name": "ACTION_MANAGE_APPLICATIONS_SETTINGS",
     "api": 3,
     "action": "Show settings to manage installed applications.",
     "constant": "android.settings.MANAGE_APPLICATIONS_SETTINGS"
+  },
+  {
+    "name": "ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION",
+    "api": 30,
+    "action": "Show screen for controlling if the app specified in the data URI of the intent can manage external storage. Launching the corresponding activity requires the permission Manifest.permission#MANAGE_EXTERNAL_STORAGE. In some cases, a matching Activity may not exist, so ensure you safeguard against this.",
+    "constant": "android.settings.MANAGE_APP_ALL_FILES_ACCESS_PERMISSION"
   },
   {
     "name": "ACTION_MANAGE_DEFAULT_APPS_SETTINGS",
@@ -196,6 +268,12 @@
     "api": 23,
     "action": "Show screen for controlling which apps can draw on top of other apps.",
     "constant": "android.settings.action.MANAGE_OVERLAY_PERMISSION"
+  },
+  {
+    "name": "ACTION_MANAGE_SUPERVISOR_RESTRICTED_SETTING",
+    "api": 0,
+    "action": "Launch UI to manage a setting restricted by supervisors.",
+    "constant": "android.settings.MANAGE_SUPERVISOR_RESTRICTED_SETTING"
   },
   {
     "name": "ACTION_MANAGE_UNKNOWN_APP_SOURCES",
@@ -246,6 +324,18 @@
     "constant": "android.settings.NIGHT_DISPLAY_SETTINGS"
   },
   {
+    "name": "ACTION_NOTIFICATION_ASSISTANT_SETTINGS",
+    "api": 29,
+    "action": "Show Notification assistant settings.",
+    "constant": "android.settings.NOTIFICATION_ASSISTANT_SETTINGS"
+  },
+  {
+    "name": "ACTION_NOTIFICATION_LISTENER_DETAIL_SETTINGS",
+    "api": 30,
+    "action": "Show notification listener permission settings page for app. Users can grant and deny access to notifications for a ComponentName from here. See NotificationManager.isNotificationListenerAccessGranted(ComponentName) for more details.",
+    "constant": "android.settings.NOTIFICATION_LISTENER_DETAIL_SETTINGS"
+  },
+  {
     "name": "ACTION_NOTIFICATION_LISTENER_SETTINGS",
     "api": 22,
     "action": "Show Notification listener settings.",
@@ -270,6 +360,18 @@
     "constant": "android.settings.PRIVACY_SETTINGS"
   },
   {
+    "name": "ACTION_PROCESS_WIFI_EASY_CONNECT_URI",
+    "api": 29,
+    "action": "Show setting page to process a Wi-Fi Easy Connect (aka DPP) URI and start configuration. This intent should be used when you want to use this device to take on the configurator role for an IoT/other device. When provided with a valid DPP URI string, Settings will open a Wi-Fi selection screen for the user to indicate which network they would like to configure the device specified in the DPP URI string and carry them through the rest of the flow for provisioning the device. In some cases, a matching Activity may not exist, so ensure to safeguard against this by checking WifiManager#isEasyConnectSupported().",
+    "constant": "android.settings.PROCESS_WIFI_EASY_CONNECT_URI"
+  },
+  {
+    "name": "ACTION_QUICK_ACCESS_WALLET_SETTINGS",
+    "api": 30,
+    "action": "Show screen for controlling the Quick Access Wallet. In some cases, a matching Activity may not exist, so ensure you safeguard against this. ",
+    "constant": "android.settings.QUICK_ACCESS_WALLET_SETTINGS"
+  },
+  {
     "name": "ACTION_QUICK_LAUNCH_SETTINGS",
     "api": 3,
     "action": "Show settings to allow configuration of quick launch shortcuts.",
@@ -280,6 +382,18 @@
     "api": 23,
     "action": "Ask the user to allow an app to ignore battery optimizations (that is, put them on the whitelist of apps shown by ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS). For an app to use this, it also must hold the REQUEST_IGNORE_BATTERY_OPTIMIZATIONS permission.",
     "constant": "android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+  },
+  {
+    "name": "ACTION_REQUEST_MANAGE_MEDIA",
+    "api": 31,
+    "action": "Activity Action: Show screen that let user select its Autofill Service.",
+    "constant": "android.settings.REQUEST_MANAGE_MEDIA"
+  },
+  {
+    "name": "ACTION_REQUEST_SCHEDULE_EXACT_ALARM",
+    "api": 31,
+    "action": "Show settings to allow configuration of Manifest.permission#SCHEDULE_EXACT_ALARM permission.",
+    "constant": "android.settings.REQUEST_SCHEDULE_EXACT_ALARM"
   },
   {
     "name": "ACTION_REQUEST_SET_AUTOFILL_SERVICE",
@@ -306,6 +420,12 @@
     "constant": "android.settings.SETTINGS"
   },
   {
+    "name": "ACTION_SETTINGS_EMBED_DEEP_LINK_ACTIVITY",
+    "api": 32,
+    "action": "For system or preinstalled apps to show their Activity embedded in Settings app on large screen devices.",
+    "constant": "android.settings.SETTINGS_EMBED_DEEP_LINK_ACTIVITY"
+  },
+  {
     "name": "ACTION_SHOW_REGULATORY_INFO",
     "api": 21,
     "action": "Show the regulatory information screen for the device.",
@@ -316,6 +436,12 @@
     "api": 1,
     "action": "Show settings to allow configuration of sound and volume.",
     "constant": "android.settings.SOUND_SETTINGS"
+  },
+  {
+    "name": "ACTION_SHOW_WORK_POLICY_INFO",
+    "api": 30,
+    "action": "Show Work Policy info. DPC apps can implement an activity that handles this intent in order to show device policies associated with the work profile or managed device.",
+    "constant": "android.settings.SHOW_WORK_POLICY_INFO"
   },
   {
     "name": "ACTION_STORAGE_VOLUME_ACCESS_SETTINGS",
@@ -341,24 +467,24 @@
     "action": "Show settings to manage the user input dictionary.",
     "constant": "android.settings.USER_DICTIONARY_SETTINGS"
   },
-//  {
-//    "name": "ACTION_VOICE_CONTROL_AIRPLANE_MODE",
-//    "api": 23,
-//    "action": "Modify Airplane mode settings using a voice command. This intent MUST be started using startVoiceActivity.",
-//    "constant": "android.settings.VOICE_CONTROL_AIRPLANE_MODE"
-//  },
-//  {
-//    "name": "ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE",
-//    "api": 23,
-//    "action": "Modify Battery Saver mode setting using a voice command. This intent MUST be started using startVoiceActivity.",
-//    "constant": "android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE"
-//  },
-//  {
-//    "name": "ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE",
-//    "api": 23,
-//    "action": "Modify do not disturb mode settings. This intent MUST be started using startVoiceActivity.",
-//    "constant": "android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE"
-//  },
+  {
+    "name": "ACTION_VOICE_CONTROL_AIRPLANE_MODE",
+    "api": 23,
+    "action": "Modify Airplane mode settings using a voice command. This intent MUST be started using startVoiceActivity.",
+    "constant": "android.settings.VOICE_CONTROL_AIRPLANE_MODE"
+  },
+  {
+    "name": "ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE",
+    "api": 23,
+    "action": "Modify Battery Saver mode setting using a voice command. This intent MUST be started using startVoiceActivity.",
+    "constant": "android.settings.VOICE_CONTROL_BATTERY_SAVER_MODE"
+  },
+  {
+    "name": "ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE",
+    "api": 23,
+    "action": "Modify do not disturb mode settings. This intent MUST be started using startVoiceActivity.",
+    "constant": "android.settings.VOICE_CONTROL_DO_NOT_DISTURB_MODE"
+  },
   {
     "name": "ACTION_VOICE_INPUT_SETTINGS",
     "api": 21,
@@ -382,6 +508,12 @@
     "api": 24,
     "action": "Allows user to select current webview implementation.",
     "constant": "android.settings.WEBVIEW_SETTINGS"
+  },
+  {
+    "name": "ACTION_WIFI_ADD_NETWORKS",
+    "api": 30,
+    "action": "Show setting page to process the addition of Wi-Fi networks to the user's saved network list. The app should send a new intent with an extra that holds a maximum of five WifiNetworkSuggestion that specify credentials for the networks to be added to the user's database. The Intent should be sent via the Activity.startActivityForResult(Intent, int) API.",
+    "constant": "android.settings.WIFI_ADD_NETWORKS"
   },
   {
     "name": "ACTION_WIFI_IP_SETTINGS",

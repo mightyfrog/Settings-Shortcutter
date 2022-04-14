@@ -6,9 +6,9 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * @author Shigehiro Soejima
@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         findViewById<RecyclerView>(R.id.rv).let {
-            it.layoutManager = LinearLayoutManager(this)
+            it.layoutManager =
+                LinearLayoutManager(this)
             it.adapter = ItemAdapter(supportFragmentManager, this)
         }
 
