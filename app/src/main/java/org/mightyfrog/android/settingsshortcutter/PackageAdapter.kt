@@ -5,14 +5,12 @@ import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import org.mightyfrog.android.settingsshortcutter.databinding.VhPkgItemBinding
 
 /**
  * @author Shigehiro Soejima
@@ -27,22 +25,12 @@ class PackageAdapter(
 
     override fun getItemCount() = packageList.size
 
-    override fun onBindViewHolder(holder: PackageViewHolder, position: Int) {
-        holder.apply {
-            val pkg = packageList[position].packageName
-            val appInfo =
-                context.packageManager.getApplicationInfo(pkg, PackageManager.GET_META_DATA)
-            icon.setImageDrawable(context.packageManager.getApplicationIcon(pkg))
-            appName.text = context.packageManager.getApplicationLabel(appInfo)
-            pkgName.text = pkg
-        }
-    }
+    override fun onBindViewHolder(holder: PackageViewHolder, position: Int) =
+        holder.bind(packageList[position].packageName)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PackageViewHolder {
-        return PackageViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.vh_pkg_item, parent, false)
-        ).apply {
+        val binding = VhPkgItemBinding.inflate(LayoutInflater.from(parent.context))
+        return PackageViewHolder(binding).apply {
             itemView.setOnClickListener {
                 Intent(action).apply {
                     data = Uri.parse("package:" + packageList[adapterPosition].packageName)
@@ -57,9 +45,20 @@ class PackageAdapter(
         }
     }
 
-    class PackageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val icon = view.findViewById<ImageView>(R.id.icon)!!
-        val appName = view.findViewById<TextView>(R.id.appName)!!
-        val pkgName = view.findViewById<TextView>(R.id.pkgName)!!
+    class PackageViewHolder(private val binding: VhPkgItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(pkg: String) {
+            binding.apply {
+                val appInfo =
+                    root.context.packageManager.getApplicationInfo(
+                        pkg,
+                        PackageManager.GET_META_DATA
+                    )
+                icon.setImageDrawable(root.context.packageManager.getApplicationIcon(pkg))
+                appName.text = root.context.packageManager.getApplicationLabel(appInfo)
+                pkgName.text = pkg
+            }
+        }
     }
 }

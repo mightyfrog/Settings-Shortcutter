@@ -12,9 +12,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.provider.Settings.EXTRA_WIFI_NETWORK_LIST
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
@@ -22,6 +20,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import org.mightyfrog.android.settingsshortcutter.databinding.VhItemBinding
 import java.io.InputStreamReader
 
 /**
@@ -29,7 +28,7 @@ import java.io.InputStreamReader
  */
 class ItemAdapter(
     private val fragmentManager: FragmentManager,
-    private val context: Context
+    private val context: Context,
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     private val list: List<Item>
@@ -46,11 +45,15 @@ class ItemAdapter(
 
     @TargetApi(26)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val vh = ItemViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.vh_item, parent, false)
-        )
+        val binding = VhItemBinding.inflate(LayoutInflater.from(parent.context))
+        return ItemViewHolder(binding)
+    }
+
+    @RequiresApi(33)
+    override fun onBindViewHolder(vh: ItemViewHolder, position: Int) {
+        val item = list[position]
+        vh.bind(item)
         vh.itemView.setOnClickListener {
-            val item = list[vh.adapterPosition]
             item.api?.let { api ->
                 if (api <= Build.VERSION.SDK_INT) {
                     sendIntent(item.constant)
@@ -62,16 +65,6 @@ class ItemAdapter(
                     ).show()
                 }
             }
-        }
-
-        return vh
-    }
-
-    override fun onBindViewHolder(vh: ItemViewHolder, position: Int) {
-        vh.apply {
-            val item = list[position]
-            name.text = name.context.getString(R.string.name_and_api, item.name, item.api)
-            desc.text = item.action
         }
     }
 
@@ -93,7 +86,8 @@ class ItemAdapter(
             Settings.ACTION_APP_LOCALE_SETTINGS,
             Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
             Settings.ACTION_APP_USAGE_SETTINGS,
-            Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION -> {
+            Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+            -> {
                 val b = Bundle()
                 b.putString("action", action)
                 PackageChooserDialog.newInstance(b)
@@ -107,8 +101,11 @@ class ItemAdapter(
                     0
                 )
                 if (adb != 1) {
-                    Toast.makeText(context, "Developer options are not enabled", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(
+                        context,
+                        "Developer options are not enabled",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return
                 }
             }
@@ -160,7 +157,8 @@ class ItemAdapter(
             }
             Settings.ACTION_VOICE_CONTROL_AIRPLANE_MODE,
             Settings.ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE,
-            Settings.ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE -> {
+            Settings.ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE,
+            -> {
                 // startVoiceActivity
             }
         }
@@ -173,9 +171,15 @@ class ItemAdapter(
         }
     }
 
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: TextView = itemView.findViewById(R.id.name)
-        val desc: TextView = itemView.findViewById(R.id.desc)
+    class ItemViewHolder(private val binding: VhItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: Item) {
+            binding.apply {
+                name.text = name.context.getString(R.string.name_and_api, item.name, item.api)
+                desc.text = item.action
+            }
+        }
     }
 
     companion object {

@@ -7,26 +7,25 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import org.mightyfrog.android.settingsshortcutter.databinding.ActivityMainBinding
 
 /**
  * @author Shigehiro Soejima
  */
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     @TargetApi(26)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        findViewById<RecyclerView>(R.id.rv).let {
-            it.layoutManager =
-                LinearLayoutManager(this)
-            it.adapter = ItemAdapter(supportFragmentManager, this)
-        }
+        setSupportActionBar(binding.toolbar)
+
+        binding.rv.adapter = ItemAdapter(supportFragmentManager, this)
 
         if (Build.VERSION.SDK_INT >= 26) {
             createTestChannel("test_id_1", "Test Channel 1")
