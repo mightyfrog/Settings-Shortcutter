@@ -4,6 +4,7 @@ import android.annotation.TargetApi
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,14 @@ class MainActivity : AppCompatActivity() {
             createTestChannel("test_id_1", "Test Channel 1")
             createTestChannel("test_id_2", "Test Channel 2")
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        android.util.Log.e(
+            MainActivity::class.java.simpleName,
+            "requestCode: $requestCode, resultCode: $resultCode, data: $data"
+        )
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     @TargetApi(26)

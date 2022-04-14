@@ -2,6 +2,7 @@ package org.mightyfrog.android.settingsshortcutter
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -15,6 +16,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
@@ -75,6 +77,8 @@ class ItemAdapter(
         action ?: return
 
         val intent = Intent()
+        intent.action = action
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
         when (action) {
             Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
             Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
@@ -85,12 +89,21 @@ class ItemAdapter(
             Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
             Settings.ACTION_APP_LOCALE_SETTINGS,
             Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
-            Settings.ACTION_APP_USAGE_SETTINGS,
             Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
             -> {
-                val b = Bundle()
-                b.putString("action", action)
-                PackageChooserDialog.newInstance(b)
+                val bundle = Bundle().apply {
+                    putString("action", action)
+                }
+                PackageChooserDialog.newInstance(bundle)
+                    .show(fragmentManager, PackageChooserDialog::class.java.simpleName)
+                return
+            }
+            Settings.ACTION_APP_USAGE_SETTINGS -> {
+                val bundle = Bundle().apply {
+                    putString("action", action)
+                    putBoolean("extraPackageName", true)
+                }
+                PackageChooserDialog.newInstance(bundle)
                     .show(fragmentManager, PackageChooserDialog::class.java.simpleName)
                 return
             }
@@ -154,16 +167,27 @@ class ItemAdapter(
                         .build()
                 )
                 intent.putParcelableArrayListExtra(EXTRA_WIFI_NETWORK_LIST, list)
+                try {
+                    ActivityCompat.startActivityForResult(
+                        context as Activity,
+                        intent,
+                        1,
+                        null
+                    )
+                } catch (t: Throwable) {
+                    Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
+                }
+                return
             }
             Settings.ACTION_VOICE_CONTROL_AIRPLANE_MODE,
             Settings.ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE,
             Settings.ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE,
             -> {
                 // startVoiceActivity
+                Toast.makeText(context, "not implemented", Toast.LENGTH_SHORT).show()
+                return
             }
         }
-        intent.action = action
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
         try {
             ContextCompat.startActivity(context, intent, null)
         } catch (t: Throwable) {

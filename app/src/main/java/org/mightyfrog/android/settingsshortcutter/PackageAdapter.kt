@@ -5,9 +5,11 @@ import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.mightyfrog.android.settingsshortcutter.databinding.VhPkgItemBinding
@@ -17,7 +19,8 @@ import org.mightyfrog.android.settingsshortcutter.databinding.VhPkgItemBinding
  */
 class PackageAdapter(
     private val action: String,
-    private val context: Context
+    private val context: Context,
+    private val extraPackageName: Boolean = false,
 ) : RecyclerView.Adapter<PackageAdapter.PackageViewHolder>() {
 
     private val packageList: List<ApplicationInfo> =
@@ -28,12 +31,18 @@ class PackageAdapter(
     override fun onBindViewHolder(holder: PackageViewHolder, position: Int) =
         holder.bind(packageList[position].packageName)
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PackageViewHolder {
         val binding = VhPkgItemBinding.inflate(LayoutInflater.from(parent.context))
         return PackageViewHolder(binding).apply {
             itemView.setOnClickListener {
                 Intent(action).apply {
-                    data = Uri.parse("package:" + packageList[adapterPosition].packageName)
+                    val packageName = packageList[adapterPosition].packageName
+                    if (extraPackageName) {
+                        putExtra(Intent.EXTRA_PACKAGE_NAME, packageName)
+                    } else {
+                        data = Uri.parse("package:$packageName")
+                    }
                     addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
                     try {
                         ContextCompat.startActivity(context, this, null)

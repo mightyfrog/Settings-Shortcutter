@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.mightyfrog.android.settingsshortcutter.databinding.DialogPackageChooserBinding
 
 /**
  * @author Shigehiro Soejima
@@ -23,18 +22,16 @@ class PackageChooserDialog : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
-        val rv = inflater.inflate(
-            R.layout.dialog_package_chooser,
-            container,
-            false
-        ) as RecyclerView
-        rv.adapter =
-            PackageAdapter(requireArguments().getString("action", ""), rv.context)
-        rv.layoutManager =
-            LinearLayoutManager(rv.context)
-        container?.addView(rv)
-        return rv
+        val binding = DialogPackageChooserBinding.inflate(LayoutInflater.from(requireContext()))
+        binding.rv.adapter = PackageAdapter(
+            requireArguments().getString("action", ""),
+            binding.root.context,
+            requireArguments().getBoolean("extraPackageName", false)
+        )
+        container?.addView(binding.root)
+
+        return binding.root
     }
 }
