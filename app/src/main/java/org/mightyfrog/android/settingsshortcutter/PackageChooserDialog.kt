@@ -24,7 +24,7 @@ class PackageChooserDialog : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        val binding = DialogPackageChooserBinding.inflate(LayoutInflater.from(requireContext()))
+        val binding = DialogPackageChooserBinding.inflate(layoutInflater)
         binding.rv.adapter = PackageAdapter(
             requireArguments().getString("action", ""),
             binding.root.context,

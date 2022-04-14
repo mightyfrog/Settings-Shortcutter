@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import org.mightyfrog.android.settingsshortcutter.databinding.ActivityMainBinding
 
 /**
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+        binding.rv.layoutManager = LinearLayoutManager(this)
         binding.rv.adapter = ItemAdapter(supportFragmentManager, this)
 
         if (Build.VERSION.SDK_INT >= 26) {

@@ -33,7 +33,7 @@ class PackageAdapter(
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PackageViewHolder {
-        val binding = VhPkgItemBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = VhPkgItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PackageViewHolder(binding).apply {
             itemView.setOnClickListener {
                 Intent(action).apply {

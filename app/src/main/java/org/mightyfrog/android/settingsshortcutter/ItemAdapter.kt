@@ -46,7 +46,7 @@ class ItemAdapter(
 
     @TargetApi(26)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val binding = VhItemBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = VhItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
 

@@ -3,6 +3,8 @@ Settings Intent samples
 
 ## Notes
 
+- The number inside the parentheses is the API level the intent action was added
+  - 0 means Unreleased, eg Tiramisu is 0 as of 2022/04/15
 - ACTION_MANAGE_UNKNOWN_APP_SOURCES
   - Apps with "android.permission.REQUEST_INSTALL_PACKAGES" can be toggled
 - ACTION_USAGE_ACCESS_SETTINGS
