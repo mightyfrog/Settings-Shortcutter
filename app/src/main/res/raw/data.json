@@ -162,12 +162,6 @@
     "constant": "android.settings.DREAM_SETTINGS"
   },
   {
-    "name": "ACTION_DREAM_SETTINGS",
-    "api": 18,
-    "action": "Show Daydream settings.",
-    "constant": "android.settings.DREAM_SETTINGS"
-  },
-  {
     "name": "ACTION_FINGERPRINT_ENROLL",
     "api": 28,
     "action": "Show settings to enroll fingerprints, and setup PIN/Pattern/Pass if necessary.",
@@ -279,7 +273,7 @@
     "name": "ACTION_MANAGE_UNKNOWN_APP_SOURCES",
     "api": 26,
     "action": "Show settings to allow configuration of trusted external sources",
-    "constant": "android.settings.action.MANAGE_UNKNOWN_APP_SOURCES"
+    "constant": "android.settings.MANAGE_UNKNOWN_APP_SOURCES"
   },
   {
     "name": "ACTION_MANAGE_WRITE_SETTINGS",

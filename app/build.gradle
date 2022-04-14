@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "org.mightyfrog.android.settingsshortcutter"
         minSdkVersion 21
-        targetSdkVersion "Tiramisu"
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
     }

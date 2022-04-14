@@ -11,7 +11,6 @@ import android.net.wifi.WifiNetworkSuggestion
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.provider.Settings.EXTRA_WIFI_NETWORK_LIST
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -137,13 +136,6 @@ class ItemAdapter(
                 // https://developers.google.com/android/reference/com/google/android/gms/auth/GoogleAuthUtil.html#GOOGLE_ACCOUNT_TYPE
 //                intent.putExtra(Settings.EXTRA_ACCOUNT_TYPES, arrayOf("com.google"))
             }
-            Settings.ACTION_MANAGE_SUPERVISOR_RESTRICTED_SETTING -> { // fix me
-                intent.putExtra(
-                    Settings.EXTRA_SUPERVISOR_RESTRICTED_SETTING_KEY,
-                    Settings.SUPERVISOR_VERIFICATION_SETTING_BIOMETRICS
-                )
-//                intent.putExtra(Settings.EXTRA_SUPERVISOR_RESTRICTED_SETTING_KEY, Settings.SUPERVISOR_VERIFICATION_SETTING_UNKNOWN)
-            }
             Settings.ACTION_NOTIFICATION_LISTENER_DETAIL_SETTINGS -> {
                 intent.putExtra(
                     Settings.EXTRA_NOTIFICATION_LISTENER_COMPONENT_NAME,
@@ -166,7 +158,7 @@ class ItemAdapter(
                         .setWpa2Passphrase("test123456")
                         .build()
                 )
-                intent.putParcelableArrayListExtra(EXTRA_WIFI_NETWORK_LIST, list)
+                intent.putParcelableArrayListExtra(Settings.EXTRA_WIFI_NETWORK_LIST, list)
                 try {
                     ActivityCompat.startActivityForResult(
                         context as Activity,
@@ -180,10 +172,11 @@ class ItemAdapter(
                 return
             }
             Settings.ACTION_VOICE_CONTROL_AIRPLANE_MODE,
+            Settings.ACTION_SETTINGS_EMBED_DEEP_LINK_ACTIVITY,
             Settings.ACTION_VOICE_CONTROL_BATTERY_SAVER_MODE,
             Settings.ACTION_VOICE_CONTROL_DO_NOT_DISTURB_MODE,
+            Settings.ACTION_MANAGE_SUPERVISOR_RESTRICTED_SETTING,
             -> {
-                // startVoiceActivity
                 Toast.makeText(context, "not implemented", Toast.LENGTH_SHORT).show()
                 return
             }
