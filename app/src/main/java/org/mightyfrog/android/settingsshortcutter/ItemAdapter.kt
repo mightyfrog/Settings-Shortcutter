@@ -200,6 +200,7 @@ class ItemAdapter(
     }
 
     companion object {
+        // https://github.com/AOSP-10/packages_apps_Settings/blob/7e28298e599841790c13bb049ac9aa38291a3b3a/tests/unit/src/com/android/settings/wifi/dpp/WifiDppConfiguratorActivityTest.java
         private const val VALID_WIFI_DPP_QR_CODE = ("DPP:I:SN=4774LH2b4044;M:010203040506;K:"
                 + "MDkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDIgADURzxmttZoIRIPWGoQMV00XHWCAQIhXruVWOz0NjlkIA=;;")
     }
